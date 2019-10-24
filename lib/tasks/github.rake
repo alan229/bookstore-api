@@ -3,7 +3,7 @@ require 'octokit'
 namespace :github do
   desc "TODO"
   task read_issues: :environment do
-    client = Octokit::Client.new(:access_token => 'f0dd8124ba44d1d011bc57615e5bbbf6a0c68ed3')
+    client = Octokit::Client.new(:access_token => '8942d9f6cdc90e5ac6240cf7b3d90713e456801f')
     client.auto_paginate = true
 
     open_issues = client.issues 'alan229/bookstore-api'
@@ -34,10 +34,10 @@ namespace :github do
 
   task webhook: :environment do 
     require "octokit"
-    client = Octokit::Client.new(:access_token => 'f0dd8124ba44d1d011bc57615e5bbbf6a0c68ed3')
+    client = Octokit::Client.new(:access_token => '8942d9f6cdc90e5ac6240cf7b3d90713e456801f')
 
     repo = "alan229/bookstore-api"
-    callback_url = "https://6c6c9637.ngrok.io/github_webhooks"
+    callback_url = "https://0b87f2cb.ngrok.io/github_webhooks"
     webhook_secret = "a_gr34t_s3cr3t"  # Must be set after that in ENV['GITHUB_WEBHOOK_SECRET']
 
     # Create the WebHook

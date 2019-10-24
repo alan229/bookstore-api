@@ -6,12 +6,30 @@ class GithubWebhooksController < ActionController::Base
   
     def handle
         puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-        puts JSON.pretty_generate(params.to_json)
+        puts JSON.pretty_generate(params)
+        puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        delete_hooks = JSON.parse(params.to_json)["github_webhook"]
+        puts delete_hooks["issue"]["title"]
+        puts delete_hooks.find("title")
+        if delete_hooks["action"].eql?"deleted" then
+            puts delete_hooks["issue"]["title"]
+            puts delete_hooks["issue"]["body"]
+
+        end
+        puts "vvvvvvvvvvvvvvvvvvvvvvvvvvvvccvvvvvvv"
+        puts "vvvvvvvvvvvvvvvvvvvvvvvvvvvvccvvvvvvv"
+        puts "vvvvvvvvvvvvvvvvvvvvvvvvvvvvccvvvvvvv"
+        puts "vvvvvvvvvvvvvvvvvvvvvvvvvvvvccvvvvvvv"
+
+
         render :json => {"status": "success"}
     end
     def create
         puts "###################################################################################"
-        # puts JSON.pretty_generate(params.to_json)
+        puts JSON.pretty_generate(params)
         render :json => {"name": "John", "age": 45}
 
     end
