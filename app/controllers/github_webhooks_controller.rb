@@ -56,6 +56,8 @@ class GithubWebhooksController < ActionController::Base
 
     def delete_author(name)
         a = Author.find_by(name: name)
+        books = Book.find_by(author: name)
+        books.delete if books
         a.delete if a
     end
 
